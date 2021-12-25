@@ -199,7 +199,7 @@ td.pr {
     font-weight: 900;
 }
 
-@media (max-width: 1023px){
+/* @media (max-width: 1023px){
     .left {
             width: 50%;
             order: 0;
@@ -213,4 +213,4 @@ td.pr {
     .content{		
         width: 100%	
     }
-}
+} */
