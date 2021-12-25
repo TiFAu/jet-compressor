@@ -1,0 +1,307 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width">
+            <title>Калькулятор вычисления параметров струйного компрессора</title>
+            <link href="css/index.css" rel="stylesheet" type="text/css" />
+            <style>
+            body {
+                background:rgba(0, 221, 255, 0.096) url(images/pic1.jpg); /* цвет фона и путь к файлу*/
+                color: rgba(0, 0, 0, 1); /*цвет текста*/
+                width: 100%;
+            }
+            @font-face{
+                font-family: ГОСТ_тип_А; /*Имя шрифта*/
+                src: url(fonts/ГОСТ_тип_А.ttf); /*путь к файлу шрифта*/
+            }
+            div,input,button,p,select,section, header{
+                font-family: ГОСТ_тип_А;
+                font-style: italic;
+            }
+            </style>
+        </head>
+        <body>
+            <!--header над которым стоит ещё потрудиться-->
+            <header>
+                <nav class="nav">
+                  <!-- <div class="nav-logo">
+                    <a href="#home">*AV</a>
+                  </div> -->
+                  <ul class="nav-list">
+                    <!-- <li class="nav-list-item">
+                      <a href="#home">Home</a>
+                      <span class="nav-list-item-line"></span>
+                    </li> -->
+                    <li class="nav-list-item">
+                      <a href="#ejectingFlow">1. Параметры эжектирующего потока</a>
+                      <span class="nav-list-item-line"></span>
+                    </li>
+                    <li class="nav-list-item">
+                      <a href="#ejectedStream">2. Параметры инжектируемого потока</a>
+                      <span class="nav-list-item-line"></span>
+                    </li>
+                    <li class="nav-list-item">
+                      <a href="#bland">3. Параметры смеси</a>
+                      <span class="nav-list-item-line"></span>
+                    </li>
+                    <li class="nav-list-item">
+                      <a href="#geometricalParameters">4. Геометрические параметры камеры и коэффициенты скорости</a>
+                      <span class="nav-list-item-line"></span>
+                    </li>
+                    <li class="nav-list-item">
+                      <a href="#resultsDate">5. Результаты</a>
+                      <span class="nav-list-item-line"></span>
+                    </li>
+                    <!-- <li class="nav-list-item">
+                      <a href="#contact">Contact</a>
+                      <span class="nav-list-item-line"></span>
+                    </li>      -->
+                  </ul>
+                </nav>
+                <section id="home" class="hero container">
+                </section>
+              </header>
+            <!--header -->
+            <!-- <script src="js/isxod.js"></script> -->
+            <!--основное содержимое окна-->
+            <article >
+                <section id = 'isxodDate'>
+                    <div id='ejectingFlow'>
+                        <table id='parametersEjectingFlow'>
+                            <caption>1. Параметры эжектирующего потока</caption>
+                            <tr>
+                                <th style="width: 5%">№ п./п.</th>
+                                <th style="width: 65%">Параметр</th>
+                                <th style="width: 10%">Единицы измерения</th>
+                                <th style="width: 10%">Обозначение</th>
+                                <th style="width: 10%">Значение</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td class = "pr">Молекулярная масса газа </td>
+                                <td> г/моль</td>
+                                <td> M<sub>0</sub> </td>
+                                <td><input type='number' id='molecularWeightGas' value=17.4></td>
+                            </tr> 
+                            <tr>
+                                <td>2.</td>
+                                <td class = "pr">Давление эжектирующего потока </td>
+                                <td> МПа</td>
+                                <td> P<sub>1</sub> </td>
+                                <td><input type='number' id='workflofPressure' value=5.2></td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td class = "pr">Температура эжектирующего потока  </td>
+                                <td> K</td>
+                                <td> T<sub>1</sub> </td>
+                                <td><input type='number' id='workflofTemperature' value=293></td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td class = "pr">Массовый расход эжектирующего потока при нормальных условиях (T=293 К, P=101325 Па) </td>
+                                <td> н.м<sup>3</sup>/сут</td>
+                                <td> Q<sub>1.сут</sub> </td>
+                                <td><input type='number' id='massFlowWorkflow' value=80000></td>
+                            </tr>
+                            <tr>
+                                <td>5.</td>
+                                <td class = "pr"> Показатель адиабаты эжектирующего потока </td>
+                                <td>-</td>
+                                <td> k<sub>1</sub> </td>
+                                <td><input type='number' id='indicatorAdiabatEjectingFlow' value=1.499></td>
+                            </tr>
+                            <tr>
+                                <td>6.</td>
+                                <td class = "pr"> Удельная газовая постоянн эжектирующего потока </td>
+                                <td> Дж/кг*К </td>
+                                <td> R<sub>1</sub> </td>
+                                <td><input type='number' id='unevenGasConstantEjectingFlow' value=456.236></td>
+                            </tr>
+                            <tr>
+                                <td>7.</td>
+                                <td class = "pr"> Плотность газа при нормальных условиях (T=293 К, P=101325 Па) </td>
+                                <td> Дж/кг*К </td>
+                                <td> r<sub>0</sub> </td>
+                                <td><input type='number' id='gasDensityUnderNC' value=0.74></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id='ejectedStream'>
+                        <table id='parametersEjectedStream'>
+                            <caption>2. Параметры инжектируемого потока</caption>
+                            <tr>
+                                <th style="width: 5%">№ п./п.</th>
+                                <th style="width: 65%">Параметр</th>
+                                <th style="width: 10%">Единицы измерения</th>
+                                <th style="width: 10%">Обозначение</th>
+                                <th style="width: 10%">Значение</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td class = "pr">Давление инжектируемого потока </td>
+                                <td> МПа</td>
+                                <td> P<sub>2</sub> </td>
+                                <td><input type='number' id='injectionPressure' value=1.130></td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td class = "pr">Температура инжектируемого потока  </td>
+                                <td> K</td>
+                                <td> T<sub>2</sub> </td>
+                                <td><input type='number' id='injectionFlowTemperature' value=293></td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td class = "pr"> Показатель адиабаты инжектируемого потока </td>
+                                <td>-</td>
+                                <td> k<sub>2</sub> </td>
+                                <td><input type='number' id='indicatorAdiabatInjectedStream' value=1.329></td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td class = "pr"> Удельная газовая постоянн инжектируемого потока </td>
+                                <td> Дж/кг*К </td>
+                                <td> R<sub>2</sub> </td>
+                                <td><input type='number' id='unevenGasConstantInjectedStream' value=455.994></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id='bland'>
+                        <table id='blendParameters'>
+                            <caption>3. Параметры смеси</caption>
+                            <tr>
+                                <th style="width: 5%">№ п./п.</th>
+                                <th style="width: 65%">Параметр</th>
+                                <th style="width: 10%">Единицы измерения</th>
+                                <th style="width: 10%">Обозначение</th>
+                                <th style="width: 10%">Значение</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td class = "pr">Давление смеси</td>
+                                <td> МПа</td>
+                                <td> P<sub>3</sub> </td>
+                                <td><input type='number' id='mixturePressure' value=2.5></td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td class = "pr">Скорость смеси на выходе из камеры смешения</td>
+                                <td> м/с</td>
+                                <td> v<sub>3</sub> </td>
+                                <td><input type='number' id='mixSpeed' value=40></td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td class = "pr">Шаг итераций вычислений λ<sub>c3</sub></td>
+                                <td> - </td>
+                                <td> - </td>
+                                <!-- <td><input type='number' id='miλc3' value=40></td> -->
+                                <td><select id = 'stepλc3'> <option value="0.1">0.1</option>
+                                                            <option value="0.05">0.05</option>
+                                                            <option value="0.01">0.01</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id='geometricalParameters'>
+                        <table id='geometries'>
+                            <caption>4. Геометрические параметры камеры и коэффициенты скорости </caption>
+                            <tr>
+                                <th style="width: 5%">№ п./п.</th>
+                                <th style="width: 65%">Параметр</th>
+                                <th style="width: 10%">Единицы измерения</th>
+                                <th style="width: 10%">Обозначение</th>
+                                <th style="width: 10%">Значение</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td class = "pr">Диаметр трубопровода подводящего эжектирующий поток</td>
+                                <td> мм</td>
+                                <td> dpod </td>
+                                <td><input type='number' id='dpod' value=50></td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td class = "pr">Угол конусности дозвуковой части сопла</td>
+                                <td> град</td>
+                                <td> α<sub>1</sub> </td>
+                                <td><input type='number' id='alfa1' value=45></td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td class = "pr">Угол конусности сверхзвуковой части сопла</td>
+                                <td> град</td>
+                                <td> α<sub>2</sub> </td>
+                                <td><input type='number' id='alfa2' value=10></td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td class = "pr">Угол между образующей входного участка камеры смешения и осью компрессора</td>
+                                <td> град</td>
+                                <td> β </td>
+                                <td><input type='number' id='beta' value=45></td>
+                            </tr>
+                            <tr>
+                                <td>5. </td>
+                                <td class = "pr">Коэффициент скорости сопла</td>
+                                <td> - </td>
+                                <td> φ<sub>1</sub> </td>
+                                <td><input type='number' id='fi1' value=0.95></td>
+                            </tr>
+                            <tr>
+                                <td>6. </td>
+                                <td class = "pr">Коэффициент скорости камеры смещения</td>
+                                <td> - </td>
+                                <td> φ<sub>2</sub> </td>
+                                <td><input type='number' id='fi2' value=0.975></td>
+                            </tr>
+                            <tr>
+                                <td>7. </td>
+                                <td class = "pr">Коэффициент скорости диффузора</td>
+                                <td> - </td>
+                                <td> φ<sub>3</sub> </td>
+                                <td><input type='number' id='fi3' value=0.9></td>
+                            </tr>
+                            <tr>
+                                <td>8. </td>
+                                <td class = "pr">Коэффициент скорости конфузора</td>
+                                <td> - </td>
+                                <td> φ<sub>4</sub> </td>
+                                <td><input type='number' id='fi4' value=0.925></td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td><button id='calc'>Расчитать</button></td>
+                            </tr>                    
+                        </table>
+                    </div>
+                </section>
+                <!--Секция результатов расчета-->
+                <section id = 'resultsDate' class="resultsDate">
+                    <div id='results'>
+                    </div>
+                </section>
+                <!--конец секции результатов расчета-->
+                <script src="js/index.js"></script>
+            </article>
+            <section id="contact" class="contact-links">
+                <a href="mail:turchin.anton2@gmail.com">turchin.anton2@gmail.com</a>
+                <ul>
+                  <li><a href="https://github.com/TiFAu" target="_blank">github</a></li>
+                  <li><a href="https://www.linkedin.com/in/%D0%B0%D0%BD%D1%82%D0%BE%D0%BD-%D1%82%D1%83%D1%80%D1%87%D0%B8%D0%BD-734164228/" target="_blank">linkedin</a></li>
+                  <li><a href="https://www.behance.net/" target="_blank">behance</a></li>
+                  <li><a href="https://www.facebook.com/profile.php?id=100033506619455" target="_blank">facebook</a></li>
+                </ul>
+              </section>
+            </main>
+            <footer class="footer">
+                <p>&copy Made by <span>Anton</span> created with <a href= "https://github.com/TiFAu" target="_blank">TiFAu</a> </p>
+            </footer>
+        </body>
+    </html>
