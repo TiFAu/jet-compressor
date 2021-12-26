@@ -264,7 +264,7 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
         32: ["Время затраченное на расчет","мс","t<sub>зат</sub>",x32],
         31: ["Время завершения расчета","чч:мм:сс:мс","t<sub>зав</sub>",x31],
         33: ["Версия программы расчета","","","v.1.01"],
-        34: ["Детальный отчет", "", "", "<button id='detalies'>Просмотреть</button>"]
+        34: ["Детальный отчет", "", "", "<button id = 'detalies' class = 'calc' >Просмотреть</button>"]
                         }
     var forecast = Object.keys(parameters);
     //var results = document.createElement("div");
