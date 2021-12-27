@@ -102,7 +102,7 @@ td.pr {
     position: fixed;
     top: 0;
     left: 0;
-    height: 5rem;
+    height: 4rem;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -124,18 +124,20 @@ td.pr {
 
 .nav-list {
     display: flex;
-    align-items: cen zzzzter;
+    align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
 }  
   
 .nav-list-item {
-    letter-spacing: 4px;
+    letter-spacing: 2px;
+    width: 20vw;
     font-weight: 700;
     margin-right: 10px;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
 }  
   
@@ -148,13 +150,6 @@ td.pr {
   
 .nav-list-item:hover > .nav-list-item-line {
     width: 100%;
-}
-
-.bar-list {
-	display: flex;
-	list-style: none;
-	padding: 0;
-	margin: 0;
 }
 
 .calc {
