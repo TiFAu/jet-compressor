@@ -15,7 +15,19 @@ ul {
 a {
     text-decoration: none;
     color: inherit;
-}  
+}
+
+h4 {
+    margin: 0;
+}
+
+section {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
 input, button, select, text, option {
     width: 97%;
@@ -31,7 +43,7 @@ button{
 table {
     border: 1px;
     border-collapse: collapse;
-    width: 97%;
+    width: 97vw;
     font-size: 0.9em;
     position: relative;
     left: 0.5vw;
@@ -69,12 +81,16 @@ caption{
 }
 
 div {
-
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid black;
     background-color: rgba(0, 221, 255, 0.94);
     text-align: center;
     font-size: 1.2rem;
-    margin: 1% 0 1% 0;
+    margin: 0 0 0 0;
     padding: 8rem 0 2% 0;
 }
 
