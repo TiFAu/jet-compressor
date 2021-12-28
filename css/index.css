@@ -54,7 +54,7 @@ table {
 
 a {
     color: rgba(0, 0, 0, 1);
-    display: flex;
+    display: inline-flex;  
 }
 
 td{
