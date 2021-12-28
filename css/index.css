@@ -19,6 +19,7 @@ a {
 
 h4 {
     margin: 0;
+    display: none;
 }
 
 section {
@@ -126,8 +127,8 @@ td.pr {
 
 .nav-list {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: space-evenly;
     flex-wrap: nowrap;
 }  
   
@@ -140,7 +141,7 @@ td.pr {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
+    justify-content: space-around;
 }  
   
 .nav-list-item-line {
