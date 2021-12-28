@@ -27,7 +27,7 @@ section {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 2px 0 0 0;
+    margin: 4px 0 0 0;
 }
 
 input, button, select, text, option {
@@ -54,6 +54,7 @@ table {
 
 a {
     color: rgba(0, 0, 0, 1);
+    display: flex;
 }
 
 td{
@@ -91,7 +92,7 @@ div {
     background-color: rgba(0, 221, 255, 0.94);
     text-align: center;
     font-size: 1.2rem;
-    margin: 2px 0 0 0;
+    margin: 4px 0 0 0;
     padding: 8rem 0 2% 0;
 }
 
@@ -132,7 +133,7 @@ td.pr {
   
 .nav-list-item {
     letter-spacing: 2px;
-    width: 20vw;
+    /* width: 16vw; */
     font-weight: 700;
     margin-right: 10px;
     font-size: 1rem;
