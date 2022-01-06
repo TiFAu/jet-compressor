@@ -15,7 +15,7 @@
                 font-family: ГОСТ_тип_А; /*Имя шрифта*/
                 src: url(fonts/ГОСТ_тип_А.ttf); /*путь к файлу шрифта*/
             }
-            div,input,button,p,select,section, header{
+            div,input,button,p,select,section, header, textarea{
                 font-family: ГОСТ_тип_А;
                 font-style: italic;
             }
@@ -180,7 +180,7 @@
                                 <th style="width: 65%">Параметр</th>
                                 <th style="width: 10%">Единицы измерения</th>
                                 <th style="width: 10%">Обозначение</th>
-                                <th style="width: 10%">Значение</th>https://github.com/garevna/js-course/wiki/localStorage
+                                <th style="width: 10%">Значение</th>
                             </tr>
                             <tr>
                                 <td>1.</td>
@@ -296,7 +296,42 @@
                 <!--конец секции результатов расчета-->
                 <script src="js/index.js"></script>
             </article>
-            <section id="contact" class="contact-links">
+            <section id="contact" class="contact">
+                <div class="contact-form">
+                  <form action="http://ptsv2.com/t/d8uw9-1614284335/post" method="post">
+                    <div class="contact-form-row">
+                      <div class="contact-form-row-field">
+                        <label for="firstName">Имя</label>
+                        <input type="text" id='firstName'>
+                      </div>
+                      <div class="contact-form-row-field">
+                        <label for="lastName">Фамилия</label>
+                        <input type="text" id='lastName'>
+                      </div>
+                    </div>
+                    <div class="contact-form-row">
+                      <div class="contact-form-row-field">
+                        <label for="email">Email *</label>
+                        <input type="text" id='email'>
+                      </div>
+                      <div class="contact-form-row-field">
+                        <label for="phone">Телефон</label>
+                        <input type="text" id='phone'>
+                      </div>
+                    </div>
+                    <div class="contact-form-row-field">
+                      <label for="subject">Тема</label>
+                      <input type="text" id='subject'>
+                    </div>
+                    <div class="contact-form-row-field">
+                      <label for="message">Оставьте нам сообщение...</label>
+                      <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    </div>
+                    <button class="contact-form-submit" type="submit">Отправить</button>
+                  </form>
+                </div>
+              </section>
+            <section class="contact-links">
                 <h4>Контакты</h4>
                 <a href="mail:turchin.anton2@gmail.com">turchin.anton2@gmail.com</a>
                 <ul>
