@@ -15,7 +15,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: inherit;
+    /* color: inherit; */
 }
 
 h4 {
@@ -24,11 +24,8 @@ h4 {
 }
 
 section {
-    display: flex;
     width: 100vw;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
     margin: 4px 0 0 0;
 }
 
@@ -60,24 +57,20 @@ a {
 }
 
 td{
-
     text-align: center;
 
 }
 th{
-
     text-align: center;
-
 }
-p{
 
+p{
     text-align: center;
     font-size: 1.2rem;
     width: 100%;
-
 }
-caption{
 
+caption{
     font-size: 1.2em;
     font-weight: 600;
     text-align: left;
@@ -86,10 +79,6 @@ caption{
 
 div {
     width: 100vw;
-    /*display: flex; 
-    justify-content: center; 
-    flex-direction: column;
-    align-items: center; */
     border: 1px solid black;
     background-color: rgba(0, 221, 255, 0.94);
     text-align: center;
@@ -104,6 +93,12 @@ div#results {
 
 td.pr {
     text-align: left;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav {
@@ -178,16 +173,11 @@ td.pr {
 .contact-form {
     margin: 0;
     padding: 8vh 24vw 0 20vw;
-    /* border: none; */
-    display: flex;
-    justify-content: center;
     width: 100%;
     min-width: 60vw;
-    /* padding-bottom: 10rem; */
 }
 
 .contact-form > form {
-    /* border: none; */
     display: flex;
     flex-direction: column;
     max-width: 80rem;
@@ -217,15 +207,10 @@ td.pr {
 
 .contact-form-row-field > input,
 .contact-form-row-field > textarea {
-    /* margin-top: 0.5rem; */
-    /* border: 1px solid #000; */
-    /* padding: 1rem 2rem; */
     width: 100%;
-    /* font-size: 1.6rem; */
 }
 
 .contact-form-row-field > input,label {
-    /* height: 2rem; */
     text-align: left;
     text-align-last: left;   
 }
@@ -233,7 +218,6 @@ td.pr {
 .contact-form-row-field > input:hover,
 .contact-form-row-field > textarea:hover {
     border-width: 2px;
-    /* text-align: left; */
 }
 
 .contact-form-row-field > textarea {
@@ -250,9 +234,6 @@ td.pr {
     cursor: pointer;
     background: none;
     align-self: flex-end;
-    /* margin-top: 3rem; */
-    /* font-size: 1.6rem; */
-    /* padding: 1rem 2.5rem; */
     border-radius: 0.5rem;
     transition: transform 0.3s ease;
     margin: 2px 0 0.5rem 0;
@@ -283,10 +264,6 @@ td.pr {
   
 .contact-links > ul {
     width: 100%;
-    /* margin-top: 20px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
   
 .contact-links > ul > li {
@@ -302,33 +279,12 @@ td.pr {
     height: 2rem;
     background: rgba(0, 221, 255, 0.984);
     border: 1px solid black;
-    display:flex;
-    align-items: center;
-    justify-content: center;
     font-size: 1.2rem;
     letter-spacing: 0.2rem;
     z-index: 100;
 }
-
-
   
 .footer > p > a,
 .footer > p > span {
     font-weight: 900;
 }
-
-/* @media (max-width: 1023px){
-    .left {
-            width: 50%;
-            order: 0;
-    }
-    .main {
-            flex-wrap: wrap;
-        }
-    .right {
-        width: 50%;
-        }
-    .content{		
-        width: 100%	
-    }
-} */
