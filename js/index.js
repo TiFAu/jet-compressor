@@ -264,7 +264,8 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
         32: ["Время затраченное на расчет","мс","t<sub>зат</sub>",x32],
         31: ["Время завершения расчета","чч:мм:сс:мс","t<sub>зав</sub>",x31],
         33: ["Версия программы расчета","","","v.1.01"],
-        34: ["Детальный отчет", "", "", "<button id = 'detalies' class = 'calc' >Просмотреть</button>"]
+        34: ["Экспорт отчета в Excel", "", "", "<button id = 'resultToExcel' class = 'calc' >Expor to Excel</button>"],
+        35: ["Детальный отчет", "", "", "<button id = 'details' class = 'calc' >Просмотреть</button>"]
                         }
     var forecast = Object.keys(parameters);
     //var results = document.createElement("div");
@@ -312,14 +313,17 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
             };
             calculationResults.appendChild(tr);
                                     };
+        calculationResults.id = "tableResults"
     results.appendChild(calculationResults);
     //return results;
-detalies.onclick = function(){//функция вывода развернутого отчета по кнопке 
-    var detaliesResults = document.createElement("table");
-    //detaliesResults.innerHTML = "" //чистим таблицу с расчетом;
+details.onclick = function(){//функция вывода развернутого отчета по кнопке 
+    var detailsResults = document.createElement("table");
+    detailsResults.id = 'tableDetailsResults';
+    details
+    //detailsResults.innerHTML = "" //чистим таблицу с расчетом;
     var zag = document.createElement("caption");
         zag.innerHTML=" 6. Результаты расчета развернуто";
-        detaliesResults.appendChild(zag);
+        detailsResults.appendChild(zag);
         x33["1"].unshift('λ<sub>c3</sub>');
         x33["2"].unshift('q<sub>c3</sub>(<sub>λc3</sub>)');
         x33["3"].unshift('П<sub>c3</sub>');
@@ -343,7 +347,7 @@ detalies.onclick = function(){//функция вывода развернуто
                     th.innerHTML = x33["1"][i];
                     tr.appendChild(th);
                     };
-                detaliesResults.appendChild(tr);
+                detailsResults.appendChild(tr);
                 }
             else{
                 var tr = document.createElement("tr");
@@ -352,14 +356,31 @@ detalies.onclick = function(){//функция вывода развернуто
                     td.innerHTML = x33[y+1][i];
                     tr.appendChild(td);
                     };
-                detaliesResults.appendChild(tr);
+                detailsResults.appendChild(tr);
                 };
-        }
-        results.appendChild(detaliesResults);
+            }
+        results.appendChild(detailsResults);
+        const buttonExportDetailsToExcel = document.createElement ("button");
+        buttonExportDetailsToExcel.id = 'exportDetailsToExcel';
+        buttonExportDetailsToExcel.className = 'calc contact-form-submit';
+        buttonExportDetailsToExcel.innerText = 'Export to Excel';
+        results.appendChild(buttonExportDetailsToExcel);
         var p = document.createElement("p");
         results.appendChild(p);
+        exportDetailsToExcel.onclick = function () { //функция вывода развернутых результатов расчета в файл excel
+            var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+            const tableDetailsResult = document.getElementById ("tableDetailsResults")
+            const DetailsToExcel = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text) + tableDetailsResult.innerHTML);
+            return (DetailsToExcel);
+            };
     };
-    return calculationResults;  
+resultToExcel.onclick = function () { //функция вывода результатов расчета в файл excel
+    var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+    const tableResult = document.getElementById ("tableResults")
+    const toExcel = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text) + tableResult.innerHTML);
+    return (toExcel);
+    };
+return calculationResults;  
 }
 
 calc.onclick = function(){

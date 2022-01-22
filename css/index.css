@@ -163,8 +163,8 @@ td.pr {
   
 .calc:hover {
     transform: scale(1.01);
+    background-color: red;
 }
-  
 
 .resultsDate {
     display: none;
@@ -241,6 +241,7 @@ td.pr {
 
 .contact-form-submit:hover {
     transform: scale(1.01);
+    background-color: red;
 }
 
 
