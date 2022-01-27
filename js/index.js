@@ -313,14 +313,20 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
             };
             calculationResults.appendChild(tr);
                                     };
-        calculationResults.id = "tableResults"
+        calculationResults.id = "tableResults";
+        var detailsResults = document.createElement("table");
+        detailsResults.id = 'tableDetailsResults';
+        detailsResults.style.display = 'none';
+    results.appendChild(detailsResults);                                
     results.appendChild(calculationResults);
     //return results;
-details.onclick = function(){//функция вывода развернутого отчета по кнопке 
-    var detailsResults = document.createElement("table");
-    detailsResults.id = 'tableDetailsResults';
-    details
-    //detailsResults.innerHTML = "" //чистим таблицу с расчетом;
+
+    details.onclick = function(){//функция вывода развернутого отчета по кнопке
+    detailsResults.style.display = 'table';
+    detailsResults.innerHTML = "" //чистим таблицу с расчетом;
+    // дописать удаление кнопки
+    // const deleteBottom = document.getElementById('exportDetailsToExcel');
+    // const deletedBottom = results.removeChild (deleteBottom)
     var zag = document.createElement("caption");
         zag.innerHTML=" 6. Результаты расчета развернуто";
         detailsResults.appendChild(zag);
@@ -367,21 +373,33 @@ details.onclick = function(){//функция вывода развернуто�
         results.appendChild(buttonExportDetailsToExcel);
         var p = document.createElement("p");
         results.appendChild(p);
-        exportDetailsToExcel.onclick = function () { //функция вывода развернутых результатов расчета в файл excel
-            var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
-            const tableDetailsResult = document.getElementById ("tableDetailsResults")
-            const DetailsToExcel = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text) + tableDetailsResult.innerHTML);
-            return (DetailsToExcel);
-            };
+        exportDetailsToExcel.onclick = (() => { //функция вывода развернутых результатов расчета в файл excel
+            const uri = 'data:application/vnd.ms-excel;base64,',
+            template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+            base64 = (s) => window.btoa(unescape(encodeURIComponent(s))),
+            format = (s, c) => s.replace(/{(\w+)}/g, (m, p) => c[p])
+                return (name) => {
+                const table = document.getElementById ('tableDetailsResults')
+                const ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+                window.location.href = uri + base64(format(template, ctx))
+            }
+        })()    
     };
-resultToExcel.onclick = function () { //функция вывода результатов расчета в файл excel
-    var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
-    const tableResult = document.getElementById ("tableResults")
-    const toExcel = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text) + tableResult.innerHTML);
-    return (toExcel);
-    };
+resultToExcel.onclick = (() => { //функция вывода результатов расчета в файл excel
+    const uri = 'data:application/vnd.ms-excel;base64,',
+    template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+    base64 = (s) => window.btoa(unescape(encodeURIComponent(s))),
+    format = (s, c) => s.replace(/{(\w+)}/g, (m, p) => c[p])
+        return (name) => {
+        const table = document.getElementById ('tableResults')
+        const ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+        window.location.href = uri + base64(format(template, ctx))
+    }
+})()    
+    
 return calculationResults;  
 }
+
 
 calc.onclick = function(){
     var time1 = new Date ()// переменная фиксирующая время начала расчета;
