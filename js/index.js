@@ -324,12 +324,12 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
     details.onclick = function(){//функция вывода развернутого отчета по кнопке
     detailsResults.style.display = 'table';
     detailsResults.innerHTML = "" //чистим таблицу с расчетом;
-    // дописать удаление кнопки
-    // const deleteBottom = document.getElementById('exportDetailsToExcel');
-    // const deletedBottom = results.removeChild (deleteBottom)
+    const tableDetailsResults = document.getElementById ('tableDetailsResults')
+    if (document.getElementById('exportDetailsToExcel')) exportDetailsToExcel.remove()
     var zag = document.createElement("caption");
         zag.innerHTML=" 6. Результаты расчета развернуто";
         detailsResults.appendChild(zag);
+        if ( x33["1"][0] != 'λ<sub>c3</sub>') {
         x33["1"].unshift('λ<sub>c3</sub>');
         x33["2"].unshift('q<sub>c3</sub>(<sub>λc3</sub>)');
         x33["3"].unshift('П<sub>c3</sub>');
@@ -343,6 +343,8 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
         x33["11"].unshift('R<sub>3</sub>');
         x33["12"].unshift('T<sub>3</sub>');
         x33["13"].unshift('r<sub>3</sub>');
+        }
+        else {}
         var a = x33["1"].length;
         var b = Object.keys(x33).length;
         for (y=0;y<b;y++){
