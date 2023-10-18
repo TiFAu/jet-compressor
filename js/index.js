@@ -263,10 +263,11 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
         30: ["Время начала расчета","чч:мм:сс:мс","t<sub>нач</sub>",x30],
         32: ["Время затраченное на расчет","мс","t<sub>зат</sub>",x32],
         31: ["Время завершения расчета","чч:мм:сс:мс","t<sub>зав</sub>",x31],
-        33: ["Версия программы расчета","","","v.1.01"],
+        33: ["Версия программы расчета","","","v.1.0.2"],
         34: ["Экспорт отчета в Excel", "", "", "<button id = 'resultToExcel' class = 'calc' >Expor to Excel</button>"],
         35: ["Детальный отчет", "", "", "<button id = 'details' class = 'calc' >Просмотреть</button>"]
-                        }
+    }
+    
     var forecast = Object.keys(parameters);
     //var results = document.createElement("div");
     var calculationResults = document.createElement("table");
@@ -283,21 +284,21 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
 //                }
             tr.appendChild(td);
             for (i=0;i<parameters[y].length;i++){
-                                                    if (parameters[y][i] !== undefined) {
-                                                        var td = document.createElement("td");
-                                                        td.innerHTML = parameters[y][i];
-                                                        //td.onmousemove = function(){ //подсвет строки ;-)
-                                                        //    td.parentElement.style.backgroundColor = "green";
-                                                        //    };
-                                                        //td.onmouseout = function(){ //отбой подсветки
-                                                        //    td.style.backgroundColor = ""
-                                                        //    };
-                                                        if (i==0){td.style.textAlign= "left"};
-                                                        tr.appendChild(td)
-                                                        }
-                                                    else {break};
-                                                };
+                if (parameters[y][i] !== undefined) {
+                    var td = document.createElement("td");
+                    td.innerHTML = parameters[y][i];
+                    //td.onmousemove = function(){ //подсвет строки ;-)
+                    //    td.parentElement.style.backgroundColor = "green";
+                    //    };
+                    //td.onmouseout = function(){ //отбой подсветки
+                    //    td.style.backgroundColor = ""
+                    //    };
+                    if (i==0){td.style.textAlign= "left"};
+                    tr.appendChild(td)
                     }
+                else {break};
+            };
+        }
         else{
             var tr = document.createElement("tr");
             var th = document.createElement("th");
@@ -305,18 +306,19 @@ function resu(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19
             th.style.width = styleWidth[y];
             tr.appendChild(th);
             for (i=0;i<parameters[y].length;i++){
-                    var th = document.createElement("th");
-                    th.innerHTML = parameters[y][i];
-                    th.style.width = styleWidth[i+1];
-                    tr.appendChild(th)
-                    };
-            };
-            calculationResults.appendChild(tr);
-                                    };
-        calculationResults.id = "tableResults";
-        var detailsResults = document.createElement("table");
-        detailsResults.id = 'tableDetailsResults';
-        detailsResults.style.display = 'none';
+                var th = document.createElement("th");
+                th.innerHTML = parameters[y][i];
+                th.style.width = styleWidth[i+1];
+                tr.appendChild(th)
+                };
+        };
+        calculationResults.appendChild(tr);
+    };
+
+    calculationResults.id = "tableResults";
+    var detailsResults = document.createElement("table");
+    detailsResults.id = 'tableDetailsResults';
+    detailsResults.style.display = 'none';
     results.appendChild(detailsResults);                                
     results.appendChild(calculationResults);
     //return results;
